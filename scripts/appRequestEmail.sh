@@ -13,7 +13,7 @@ echo "This will be logged to the file and to the screen"
 
 
 # Jss API Info
-jssURL="https://jss.eut.maine.edu:8443"
+jssURL="https://serverURL:8443"
 apiUser="$5"
 
 # User EA to update when requested
@@ -89,8 +89,8 @@ Thanks,
 "
 
 # set the destination address
-emailAdd="eric.pomelow@maine.edu"
-emailCC=$6
+emailAdd="$6"
+emailCC="$7"
 
 # prepare email URL
 messageURL=`echo "mailto:$emailAdd?cc=$emailCC&subject=$subject&body=$message1" | sed 's/ /+/g'`

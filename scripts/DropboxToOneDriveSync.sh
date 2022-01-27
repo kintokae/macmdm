@@ -5,7 +5,7 @@ currentUser=`ls -l /dev/console | awk '/ / { print $3 }'`
 
 #find the user's box and onedrive folder
 dropboxFolder=$(find "/Users/$currentUser" -type d -maxdepth 1 -name "Dropbox")
-onedrive=$(find "/Users/$currentUser" -type d -maxdepth 1 -name "OneDrive - University of Maine System")
+onedrive=$(find "/Users/$currentUser" -type d -maxdepth 1 -name "OneDrive")
 
 # Output file location
 outputFile="/Users/$currentUser/Desktop/fileReport.txt"
