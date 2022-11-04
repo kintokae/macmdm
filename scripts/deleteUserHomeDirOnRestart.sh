@@ -7,7 +7,7 @@
 # Set the trigger to 'startup' and have the computer reboot on logout.
 # The user account preference from com.apple.loginwindow is checked against the admin user list and deleted if not in the list.
 #
-#  Created by eric.pomelow on 9/5/19.
+#  Created by Kintokae on 9/5/19.
 #  Updated 2022-11-04
 #   -> Fixed user logged in statement.
 #   -> Added more comments.
