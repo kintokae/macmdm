@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2B4A7A"/>
+      <stop offset="1" stop-color="#14213D"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#E9EEF5"/>
+    </linearGradient>
+    <linearGradient id="done" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1FA59A"/>
+      <stop offset="1" stop-color="#34D1BF"/>
+    </linearGradient>
+    <linearGradient id="beam" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFD166"/>
+      <stop offset="1" stop-color="#FFA62B"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+    <filter id="glow" x="-200%" y="-20%" width="500%" height="140%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+    <clipPath id="cardClip"><rect x="222" y="246" width="580" height="556" rx="52"/></clipPath>
+  </defs>
+
+  <!-- macOS-style rounded square with drop shadow -->
+  <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#bg)" filter="url(#shadow)"/>
+  <rect x="100" y="100" width="824" height="824" rx="185" fill="none" stroke="#FFFFFF" stroke-opacity="0.10" stroke-width="3"/>
+
+  <!-- back sheets: a stack of records -->
+  <rect x="262" y="206" width="500" height="80" rx="40" fill="#FFFFFF" fill-opacity="0.18"/>
+  <rect x="242" y="226" width="540" height="80" rx="44" fill="#FFFFFF" fill-opacity="0.30"/>
+
+  <!-- main record sheet -->
+  <g filter="url(#shadow)">
+    <rect x="222" y="246" width="580" height="556" rx="52" fill="url(#card)"/>
+  </g>
+
+  <g clip-path="url(#cardClip)">
+    <!-- rows: left of the beam are updated (teal), right are pending (grey) -->
+    <g>
+      <rect x="276" y="306" width="472" height="58" rx="29" fill="#D5DCE6"/>
+      <rect x="276" y="398" width="472" height="58" rx="29" fill="#D5DCE6"/>
+      <rect x="276" y="490" width="472" height="58" rx="29" fill="#D5DCE6"/>
+      <rect x="276" y="582" width="472" height="58" rx="29" fill="#D5DCE6"/>
+      <rect x="276" y="674" width="472" height="58" rx="29" fill="#D5DCE6"/>
+    </g>
+    <clipPath id="leftOfBeam"><rect x="0" y="0" width="604" height="1024"/></clipPath>
+    <g clip-path="url(#leftOfBeam)" fill="url(#done)">
+      <rect x="276" y="306" width="472" height="58" rx="29"/>
+      <rect x="276" y="398" width="472" height="58" rx="29"/>
+      <rect x="276" y="490" width="472" height="58" rx="29"/>
+      <rect x="276" y="582" width="472" height="58" rx="29"/>
+      <rect x="276" y="674" width="472" height="58" rx="29"/>
+    </g>
+    <!-- check marks in each row -->
+    <g fill="none" stroke="#FFFFFF" stroke-width="11" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M298 335 l14 14 l26 -28"/>
+      <path d="M298 427 l14 14 l26 -28"/>
+      <path d="M298 519 l14 14 l26 -28"/>
+      <path d="M298 611 l14 14 l26 -28"/>
+      <path d="M298 703 l14 14 l26 -28"/>
+    </g>
+  </g>
+
+  <!-- update beam sweeping across all rows at once -->
+  <g clip-path="url(#cardClip)">
+    <rect x="580" y="246" width="48" height="556" fill="#FFD166" opacity="0.45" filter="url(#glow)"/>
+  </g>
+  <rect x="596" y="222" width="16" height="590" rx="8" fill="url(#beam)"/>
+  <!-- handle with direction chevron -->
+  <circle cx="604" cy="802" r="46" fill="url(#beam)" stroke="#14213D" stroke-opacity="0.25" stroke-width="4"/>
+  <path d="M592 778 l24 24 l-24 24" fill="none" stroke="#14213D" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
